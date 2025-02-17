@@ -2,17 +2,6 @@
 include('auth/auth.php');
 include('auth/getuniversities.php');
 
-
-
-/* for($x = 0; $x < count($getUniversities); $x++){
-    echo $getUniversities[$x]["name_university"] . "<br>";
-    echo $getUniversities[$x]["id_university"] . "<br>";
-    echo $getUniversities[$x]["country_name"] . "<br>";
-    echo $getUniversities[$x]["time_zone_name"] . "<br>";
-    echo "<hr/>";
-}
-    */
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,35 +9,12 @@ include('auth/getuniversities.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 <body>
-    <!-- <h1 style="text-align: center;">Universities</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>University Name</th>
-                <th>Country </th>
-                <th>Time Zone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($getUniversities as $university): ?>
-                <tr>
-                    <td> <a href="show.php/?id=<?= $university["id_university"]?>">
-                    <?=$university["name_university"] ?> </a></td>
-                    <td><?=$university["country_name"]   ?> </td>
-                    <td style="text-align:end;"> <?=$university["time_zone_name"] ?> </td>
-                    
-                </tr>
-<?php endforeach; ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-        </tbody>
-    </table> -->
-    <a href ="create.php">
-
-
-        <button >Add a University</button>
-    </a>
     
 </body>
 </html>

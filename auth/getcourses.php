@@ -17,11 +17,11 @@ $db_password,
 $db_name,
 );
 
-if($conn){
-    echo "You are connected";
-} else {
-    echo "No connection";
-}
+// if($conn){
+//     echo "You are connected";
+// } else {
+//     echo "No connection";
+// }
 
 $allUniversities = universitiesList($conn); // Get the universities list
 

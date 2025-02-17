@@ -14,11 +14,11 @@ $db_password,
 $db_name,
 );
 
-if($conn){
-    echo "You are connected";
-} else {
-    echo "No connection";
-}
+// if($conn){
+//     echo "You are connected";
+// } else {
+//     echo "No connection";
+// }
 
 
 $query = "SELECT * FROM universities";
@@ -37,40 +37,44 @@ function universitiesList($conn) {
 
 $universities = universitiesList($conn);
 
-
 if ($result) {
-    echo "<h2>Universities in the Database:</h2>";
-    echo "<table border='1'>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Country</th>
-                <th>Timezone</th>
-            </tr>";
+    echo "<div class='container mt-4'>";
+    echo "<h2 class='text-center mb-4'>Universities</h2>";
+    echo "<div class='d-flex justify-content-between mb-3'>"; 
+    echo "<a href='create.php' class='btn btn-success btn-sm' style='padding-bottom: 10px;'>Add a University</a>"; 
+    echo "</div>";   
+
+    echo "<div class='table-responsive'>";
+    echo "<table class='table table-bordered table-striped text-center'>
+            <thead class='table-dark'>
+                <tr>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Timezone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>";
 
     while ($row = mysqli_fetch_assoc($result)) {
-        echo"<tr>
-            <td>" . $row['id_university'] . "</td>
-            <td><a href='show.php/?id=" . $row['id_university'] . "'>" . $row['name_university'] . "</a></td>
-            <td>" . $row['country_name'] . "</td>
-            <td>" . $row['time_zone_name'] . "</td>
+        echo "<tr>
+            <td>" . htmlspecialchars($row['name_university']) . "</td>
+            <td>" . htmlspecialchars($row['country_name']) . "</td>
+            <td>" . htmlspecialchars($row['time_zone_name']) . "</td>
             <td>
-            <a href='edit.php/?id=" . $row['id_university'] . "'>
-    <button>Edit</button>
-</a>
-            </td>
-            <td>
-      <a href='delete.php?id=" . $row['id_university'] . "' onclick='return confirm(\"Are you sure you want to delete this university?\")'>
-                <button>Delete</button>
-            </a>
+                <div class='btn-group' role='group'>
+                    <a href='show.php/?id=" . $row['id_university'] . "' class='btn btn-info btn-sm'>View</a>
+                    <a href='edit.php/?id=" . $row['id_university'] . "' class='btn btn-warning btn-sm'>Edit</a>
+                    <a href='delete.php?id=" . $row['id_university'] . "' class='btn btn-danger btn-sm' onclick='return confirm(\"Are you sure you want to delete this university?\")'>Delete</a>
+                </div>
             </td>
         </tr>";
     }
-    echo "</table><br>";
-} else {
-    echo "Error fetching data: " . mysqli_error($conn) . "<br>";
-}
 
+    echo "</tbody></table></div></div><br>";
+} else {
+    echo "<div class='alert alert-danger'>Error fetching data: " . mysqli_error($conn) . "</div>";
+}
 
 
 

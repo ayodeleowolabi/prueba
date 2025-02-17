@@ -16,7 +16,7 @@ if (isset($_GET["id"])){
 
     $stmt->close();
     $conn->close();
-    header("location:index.php");
+    header("location:/");
     exit;
 } else {
     die("No ID provided for deletion.");
