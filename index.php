@@ -1,7 +1,7 @@
 <?php
 include('auth/auth.php');
 include('auth/getuniversities.php');
-include('auth/getcourses.php');
+
 
 
 /* for($x = 0; $x < count($getUniversities); $x++){
@@ -22,7 +22,7 @@ include('auth/getcourses.php');
     <title>Document</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Universities</h1>
+    <!-- <h1 style="text-align: center;">Universities</h1>
     <table>
         <thead>
             <tr>
@@ -34,7 +34,7 @@ include('auth/getcourses.php');
         <tbody>
             <?php foreach($getUniversities as $university): ?>
                 <tr>
-                    <td> <a href="?id=<?= $university["id_university"]?>">
+                    <td> <a href="show.php/?id=<?= $university["id_university"]?>">
                     <?=$university["name_university"] ?> </a></td>
                     <td><?=$university["country_name"]   ?> </td>
                     <td style="text-align:end;"> <?=$university["time_zone_name"] ?> </td>
@@ -43,7 +43,12 @@ include('auth/getcourses.php');
 <?php endforeach; ?>
 
         </tbody>
-    </table>
+    </table> -->
+    <a href ="create.php">
+
+
+        <button >Add a University</button>
+    </a>
     
 </body>
 </html>
